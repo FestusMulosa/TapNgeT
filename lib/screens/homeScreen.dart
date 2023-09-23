@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:tapnget/constants/dimentions.dart';
 import 'package:tapnget/models/dummydata/dummydata.dart';
+import 'package:tapnget/screens/categoriesScreen.dart';
 import 'package:tapnget/screens/controlScreen.dart';
 import 'package:tapnget/widgets/categoryHomeIcon.dart';
 
@@ -50,7 +51,14 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CategoriesScreen(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'See all',
                     style: TextStyle(

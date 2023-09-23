@@ -21,7 +21,7 @@ class CategoryHomeIcon extends StatelessWidget {
       width: Dimentions.containerWidth(context, 68),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

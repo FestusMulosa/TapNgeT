@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+
 import 'package:tapnget/constants/colors.dart';
 import 'package:tapnget/screens/categoriesScreen.dart';
 
@@ -11,19 +12,15 @@ import 'profileScreen.dart';
 import 'shopScreen.dart';
 
 class ControlScreen extends StatefulWidget {
-  const ControlScreen({super.key});
+  const ControlScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<ControlScreen> createState() => _ControlScreenState();
 }
 
 class _ControlScreenState extends State<ControlScreen> {
-  void goToCategoriesScreen() {
-    setState(() {
-      currentIndex = 5;
-    });
-  }
-
   int currentIndex = 0;
 
   final List<Widget> _screens = [
@@ -32,7 +29,6 @@ class _ControlScreenState extends State<ControlScreen> {
     const BagScreen(),
     const FavouriteScreen(),
     const ProfileScreen(),
-    const CategoriesScreen(),
   ];
 
   @override
