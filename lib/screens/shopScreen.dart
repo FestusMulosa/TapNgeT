@@ -11,7 +11,7 @@ import '../models/dummydata/dummyProducts.dart';
 import '../widgets/productListview.dart';
 
 class ShopScreen extends StatefulWidget {
-  ShopScreen({super.key});
+  const ShopScreen({super.key});
 
   @override
   State<ShopScreen> createState() => _ShopScreenState();
@@ -49,29 +49,25 @@ class _ShopScreenState extends State<ShopScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              child: Row(
-                children: [
-                  Icon(Icons.filter_list, color: AppColors.filterColor),
-                  Text('Filters',
-                      style: GoogleFonts.inter(
-                        fontSize: Fonts.fontSize(context, 11),
-                        color: AppColors.filterColor,
-                      )),
-                ],
-              ),
+            Row(
+              children: [
+                const Icon(Icons.filter_list, color: AppColors.filterColor),
+                Text('Filters',
+                    style: GoogleFonts.inter(
+                      fontSize: Fonts.fontSize(context, 11),
+                      color: AppColors.filterColor,
+                    )),
+              ],
             ),
-            Container(
-              child: Row(
-                children: [
-                  Icon(Icons.sort_outlined, color: AppColors.filterColor),
-                  Text('Sort',
-                      style: GoogleFonts.inter(
-                        fontSize: Fonts.fontSize(context, 11),
-                        color: AppColors.filterColor,
-                      )),
-                ],
-              ),
+            Row(
+              children: [
+                const Icon(Icons.sort_outlined, color: AppColors.filterColor),
+                Text('Sort',
+                    style: GoogleFonts.inter(
+                      fontSize: Fonts.fontSize(context, 11),
+                      color: AppColors.filterColor,
+                    )),
+              ],
             ),
             isGrid
                 ? IconButton(

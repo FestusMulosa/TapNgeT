@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:tapnget/constants/colors.dart';
-import 'package:tapnget/screens/categoriesScreen.dart';
 
 import 'bagScreen.dart';
 import 'favouritesScreen.dart';
@@ -25,7 +24,7 @@ class _ControlScreenState extends State<ControlScreen> {
 
   final List<Widget> _screens = [
     const HomeScreen(),
-    ShopScreen(),
+    const ShopScreen(),
     const BagScreen(),
     const FavouriteScreen(),
     const ProfileScreen(),

@@ -34,7 +34,7 @@ class CategoryHomeIcon extends StatelessWidget {
                 fit: BoxFit.fill,
               )),
           Text(name,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ))
         ],

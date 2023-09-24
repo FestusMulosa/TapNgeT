@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tapnget/constants/dimentions.dart';
 import 'package:tapnget/models/dummydata/dummydata.dart';
 import 'package:tapnget/screens/categoriesScreen.dart';
-import 'package:tapnget/screens/controlScreen.dart';
+
 import 'package:tapnget/widgets/categoryHomeIcon.dart';
 
 import '../models/dummydata/dummyProducts.dart';
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: Dimentions.containerHeight(context, 170),
             child: GridView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 1.5,
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'See all',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: Dimentions.containerHeight(context, 180),
             child: GridView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 1.5,
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          Container(
+          SizedBox(
             height: Dimentions.containerHeight(context, 500),
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

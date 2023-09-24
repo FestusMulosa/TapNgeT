@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import 'package:tapnget/constants/dimentions.dart';
@@ -14,7 +16,7 @@ class StoreHomeIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: Dimentions.containerHeight(context, 92),
         width: Dimentions.containerWidth(context, 77),
         child: Column(
@@ -33,7 +35,7 @@ class StoreHomeIcon extends StatelessWidget {
             ),
             Text(
               name,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             )
