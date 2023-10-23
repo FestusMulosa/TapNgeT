@@ -7,7 +7,10 @@ import 'package:tapnget/constants/dimentions.dart';
 import 'package:tapnget/models/dummydata/dummydata.dart';
 import 'package:tapnget/widgets/productGridView.dart';
 
+import '../constants/filters.dart';
 import '../models/dummydata/dummyProducts.dart';
+import '../widgets/FilterBottomSheet..dart';
+import '../widgets/SortBottomSheet.dart';
 import '../widgets/productListview.dart';
 
 class ShopScreen extends StatefulWidget {
@@ -49,24 +52,52 @@ class _ShopScreenState extends State<ShopScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
-              children: [
-                const Icon(Icons.filter_list, color: AppColors.filterColor),
-                Text('Filters',
-                    style: GoogleFonts.inter(
-                      fontSize: Fonts.fontSize(context, 11),
-                      color: AppColors.filterColor,
-                    )),
-              ],
+            GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return shoppingFilters();
+                    });
+              },
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.filter_list,
+                    color: AppColors.filterColor,
+                  ),
+                  Text('Filters',
+                      style: GoogleFonts.inter(
+                        fontSize: Fonts.fontSize(context, 11),
+                        color: AppColors.filterColor,
+                      )),
+                ],
+              ),
             ),
             Row(
               children: [
-                const Icon(Icons.sort_outlined, color: AppColors.filterColor),
-                Text('Sort',
-                    style: GoogleFonts.inter(
-                      fontSize: Fonts.fontSize(context, 11),
-                      color: AppColors.filterColor,
-                    )),
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const SortBy();
+                        });
+                  },
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.sort,
+                        color: AppColors.filterColor,
+                      ),
+                      Text('Sort by',
+                          style: GoogleFonts.inter(
+                            fontSize: Fonts.fontSize(context, 11),
+                            color: AppColors.filterColor,
+                          )),
+                    ],
+                  ),
+                ),
               ],
             ),
             isGrid
