@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import '../constants/dimentions.dart';
-import '../widgets/login/signup_button.dart';
+import '../../../constants/dimentions.dart';
+import '../../../widgets/login/large_button.dart';
 
 class forgotPassword extends StatelessWidget {
   const forgotPassword({super.key});
@@ -60,7 +60,7 @@ class forgotPassword extends StatelessWidget {
               SizedBox(
                 height: Dimentions.containerHeight(context, 35),
               ),
-              LoginSignupButton(
+              LargButton(
                 fontSize: Fonts.fontSize(context, 14),
                 width: Dimentions.containerWidth(context, 343),
                 height: Dimentions.containerHeight(context, 48),

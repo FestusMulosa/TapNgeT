@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/dimentions.dart';
+import '../../../constants/dimentions.dart';
 
 class shoppingFilters extends StatefulWidget {
   shoppingFilters({
@@ -27,6 +27,23 @@ class _shoppingFiltersState extends State<shoppingFilters> {
         child: Column(
           children: [
             const Text('Price Range'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "K ${_currentRangeValues.start.round()}",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "K ${_currentRangeValues.end.round()}",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
             RangeSlider(
               activeColor: Colors.red[700],
               values: _currentRangeValues,
@@ -43,7 +60,7 @@ class _shoppingFiltersState extends State<shoppingFilters> {
                 });
               },
             ),
-            Text('Colors'),
+            const Text('Colors'),
             Expanded(
               child: GridView.builder(
                 itemCount: 5,

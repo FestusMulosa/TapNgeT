@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 import 'package:tapnget/constants/colors.dart';
 
-import 'bagScreen.dart';
-import 'favouritesScreen.dart';
-import 'homeScreen.dart';
-import 'profileScreen.dart';
-import 'shopScreen.dart';
+import 'Bag_Screen/bag_screen.dart';
+import 'Favourites_Screen/favourites_screen.dart';
+import 'Home_Screen/home_screen.dart';
+import 'Profile_Screen/profile_screen.dart';
+import 'Shop_Screen/shop_screen.dart';
 
 class ControlScreen extends StatefulWidget {
   const ControlScreen({

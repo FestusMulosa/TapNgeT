@@ -5,13 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tapnget/constants/colors.dart';
 import 'package:tapnget/constants/dimentions.dart';
 import 'package:tapnget/models/dummydata/dummydata.dart';
-import 'package:tapnget/widgets/productGridView.dart';
+import 'package:tapnget/screens/Shop_Screen/widgets/product_grid_view.dart';
 
-import '../constants/filters.dart';
-import '../models/dummydata/dummyProducts.dart';
-import '../widgets/FilterBottomSheet..dart';
-import '../widgets/SortBottomSheet.dart';
-import '../widgets/productListview.dart';
+import '../../constants/filters.dart';
+import '../../models/dummydata/dummyProducts.dart';
+import 'widgets/filter_bottom_sheet..dart';
+import 'widgets/Sort_bottom_sheet.dart';
+import 'widgets/product_list_view.dart';
 
 class ShopScreen extends StatefulWidget {
   const ShopScreen({super.key});
@@ -132,6 +132,23 @@ class _ShopScreenState extends State<ShopScreen> {
                     itemBuilder: (BuildContext context, int index) {
                       return dummyProducts
                           .map((products) => ProductGridview(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed('/productDetails', arguments: {
+                                    'previewImage': products.previewImage,
+                                    'productName': products.productName,
+                                    'productPrice': products.productPrice,
+                                    'productRating': products.productRating,
+                                    'productLocation': products.productLocation,
+                                    'isStore': products.isStore,
+                                    'productDescription':
+                                        products.productDescription,
+                                    'productCategory': products.productCategory,
+                                    'availableColors': products.availableColors,
+                                    'productStore': products.productStore,
+                                    'availablesizes': products.availableSizes,
+                                  });
+                                },
                                 previewImage: products.previewImage,
                                 productName: products.productName,
                                 productPrice: products.productPrice,
@@ -148,6 +165,23 @@ class _ShopScreenState extends State<ShopScreen> {
                     itemBuilder: (BuildContext context, int index) {
                       return dummyProducts
                           .map((products) => ProductListview(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed('/productDetails', arguments: {
+                                    'previewImage': products.previewImage,
+                                    'productName': products.productName,
+                                    'productPrice': products.productPrice,
+                                    'productRating': products.productRating,
+                                    'productLocation': products.productLocation,
+                                    'isStore': products.isStore,
+                                    'productDescription':
+                                        products.productDescription,
+                                    'productCategory': products.productCategory,
+                                    'availableColors': products.availableColors,
+                                    'productStore': products.productStore,
+                                    'availablesizes': products.availableSizes,
+                                  });
+                                },
                                 previewImage: products.previewImage,
                                 productName: products.productName,
                                 productPrice: products.productPrice,

@@ -3,13 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:tapnget/constants/dimentions.dart';
 import 'package:tapnget/models/dummydata/dummydata.dart';
-import 'package:tapnget/screens/categoriesScreen.dart';
+import 'package:tapnget/screens/category_Screen/categories_screen.dart';
 
 import 'package:tapnget/widgets/categoryHomeIcon.dart';
 
-import '../models/dummydata/dummyProducts.dart';
-import '../widgets/productPreviewHome.dart';
-import '../widgets/storeHomeIcone.dart';
+import '../../models/dummydata/dummyProducts.dart';
+import 'widgets/product_preview_home.dart';
+import 'widgets/store_home_icone.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -128,6 +128,22 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (BuildContext context, int index) {
                 return dummyProducts
                     .map((products) => ProductPreviewHome(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed('/productDetails', arguments: {
+                              'previewImage': products.previewImage,
+                              'productName': products.productName,
+                              'productPrice': products.productPrice,
+                              'productRating': products.productRating,
+                              'productLocation': products.productLocation,
+                              'isStore': products.isStore,
+                              'productDescription': products.productDescription,
+                              'productCategory': products.productCategory,
+                              'availableColors': products.availableColors,
+                              'productStore': products.productStore,
+                              'availablesizes': products.availableSizes,
+                            });
+                          },
                           previewImage: products.previewImage,
                           productName: products.productName,
                           productPrice: products.productPrice,

@@ -33,10 +33,18 @@ class CategoryList extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(categoryName,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: Fonts.fontSize(context, 18))),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: SizedBox(
+                width: 100,
+                child: Text(categoryName,
+                    maxLines: 2,
+                    overflow: TextOverflow.fade,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: Fonts.fontSize(context, 18))),
+              ),
+            ),
             SizedBox(
               width: Dimentions.containerWidth(context, 5),
             ),

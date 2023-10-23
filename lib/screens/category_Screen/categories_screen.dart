@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:tapnget/widgets/categoryList.dart';
 
-import '../models/dummydata/dummydata.dart';
+import '../../models/dummydata/dummydata.dart';
+import 'widgets/category_list.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});

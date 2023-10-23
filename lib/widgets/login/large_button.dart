@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tapnget/constants/colors.dart';
 
-class LoginSignupButton extends StatelessWidget {
-  const LoginSignupButton({
+class LargButton extends StatelessWidget {
+  const LargButton({
     Key? key,
     required this.onPressed,
     required this.text,

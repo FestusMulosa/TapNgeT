@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 class ProductModel {
   final String previewImage;
   final String productName;
@@ -9,6 +7,9 @@ class ProductModel {
   final String productStore;
   final int productRating;
   final String productLocation;
+  final List<String> availableColors;
+  final bool isStore;
+  final List<String> availableSizes;
 
   ProductModel({
     required this.previewImage,
@@ -19,5 +20,8 @@ class ProductModel {
     required this.productStore,
     required this.productRating,
     required this.productLocation,
+    required this.availableColors,
+    required this.isStore,
+    required this.availableSizes,
   });
 }

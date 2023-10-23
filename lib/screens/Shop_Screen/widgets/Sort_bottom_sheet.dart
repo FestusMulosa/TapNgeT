@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants/dimentions.dart';
-import '../constants/filters.dart';
+import '../../../constants/dimentions.dart';
+import '../../../constants/filters.dart';
 
 class SortBy extends StatelessWidget {
   const SortBy({

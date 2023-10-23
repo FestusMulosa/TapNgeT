@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 
-import '../constants/dimentions.dart';
-import '../widgets/login/signup_button.dart';
+import '../../../constants/dimentions.dart';
+import '../../../widgets/login/large_button.dart';
 
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,30 +21,10 @@ class SignupScreen extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'SignUp',
+                'Login',
                 style: TextStyle(
                   fontSize: Fonts.fontSize(context, 34),
                   fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: Dimentions.containerHeight(context, 35),
-              ),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  hintText: 'Name',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      Dimentions.containerWidth(context, 10),
-                    ),
-                  ),
                 ),
               ),
               SizedBox(
@@ -95,10 +75,10 @@ class SignupScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/login');
+                      Navigator.pushNamed(context, '/forgotPassword');
                     },
                     child: Text(
-                      'Alraedy have an account?',
+                      'Forgot your password?',
                       style: TextStyle(
                         fontSize: Fonts.fontSize(context, 14),
                       ),
@@ -116,15 +96,15 @@ class SignupScreen extends StatelessWidget {
               SizedBox(
                 height: Dimentions.containerHeight(context, 20),
               ),
-              LoginSignupButton(
+              LargButton(
                 fontSize: Fonts.fontSize(context, 14),
                 width: Dimentions.containerWidth(context, 343),
                 height: Dimentions.containerHeight(context, 48),
                 onPressed: () {},
-                text: 'SignUp',
+                text: 'Login',
               ),
               SizedBox(
-                height: Dimentions.containerHeight(context, 120),
+                height: Dimentions.containerHeight(context, 200),
               ),
               const Text('Or login with'),
               SizedBox(
