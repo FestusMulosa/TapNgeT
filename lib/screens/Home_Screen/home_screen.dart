@@ -8,6 +8,7 @@ import 'package:tapnget/screens/category_Screen/categories_screen.dart';
 import 'package:tapnget/widgets/categoryHomeIcon.dart';
 
 import '../../models/dummydata/dummyProducts.dart';
+import '../../utils/navigate_toproduct_function.dart';
 import 'widgets/product_preview_home.dart';
 import 'widgets/store_home_icone.dart';
 
@@ -129,20 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return dummyProducts
                     .map((products) => ProductPreviewHome(
                           onTap: () {
-                            Navigator.of(context)
-                                .pushNamed('/productDetails', arguments: {
-                              'previewImage': products.previewImage,
-                              'productName': products.productName,
-                              'productPrice': products.productPrice,
-                              'productRating': products.productRating,
-                              'productLocation': products.productLocation,
-                              'isStore': products.isStore,
-                              'productDescription': products.productDescription,
-                              'productCategory': products.productCategory,
-                              'availableColors': products.availableColors,
-                              'productStore': products.productStore,
-                              'availablesizes': products.availableSizes,
-                            });
+                            navigateToProductPage(context, products);
                           },
                           previewImage: products.previewImage,
                           productName: products.productName,
