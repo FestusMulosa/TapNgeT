@@ -1,35 +1,29 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:tapnget/constants/colors.dart';
 import 'package:tapnget/constants/dimentions.dart';
+import 'package:tapnget/models/productModel.dart';
 
 import '../../../widgets/add_to_favourites_button.dart';
 import '../../../widgets/product_rating.dart';
 
-class ProductGridview extends StatelessWidget {
-  String previewImage;
-  String productName;
-  String productPrice;
-  String productLocation;
-  int productRating;
+class ProductGridview extends ConsumerWidget {
+  final ProductModel product;
+
   Function onTap;
 
   ProductGridview({
     Key? key,
-    required this.previewImage,
-    required this.productName,
-    required this.productPrice,
-    required this.productLocation,
-    required this.productRating,
+    required this.product,
     required this.onTap,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Stack(children: [
       Padding(
         padding: const EdgeInsets.all(8.0),
@@ -58,7 +52,7 @@ class ProductGridview extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    previewImage,
+                    product.previewImage,
                     height: Dimentions.containerHeight(context, 164),
                     width: Dimentions.containerWidth(context, 184),
                     fit: BoxFit.cover,
@@ -74,26 +68,26 @@ class ProductGridview extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            ProductRating(productRating: productRating),
+                            ProductRating(productRating: product.productRating),
                           ],
                         ),
                       ),
                       Text(
-                        productLocation,
+                        product.productLocation,
                         style: GoogleFonts.inter(
                           fontSize: 11,
                           color: AppColors.productDisplaySceondaryColor,
                         ),
                       ),
                       Text(
-                        productName,
+                        product.productName,
                         style: GoogleFonts.inter(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        'K $productPrice',
+                        'K ${product.productPrice}',
                         style: GoogleFonts.inter(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -108,7 +102,12 @@ class ProductGridview extends StatelessWidget {
           ),
         ),
       ),
-      const Positioned(top: 165, right: 11, child: AddToFavouritesButton())
+      Positioned(
+          top: 165,
+          right: 11,
+          child: AddToFavouritesButton(
+            product: product,
+          ))
     ]);
   }
 }

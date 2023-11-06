@@ -5,24 +5,19 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:tapnget/constants/dimentions.dart';
+import 'package:tapnget/models/productModel.dart';
 
 import '../../../constants/colors.dart';
+import '../../../widgets/add_to_favourites_button.dart';
 
 class ProductListview extends StatelessWidget {
-  String previewImage;
-  String productName;
-  String productPrice;
-  String productLocation;
-  int productRating;
+  ProductModel product;
+
   Function() onTap;
 
   ProductListview({
     Key? key,
-    required this.previewImage,
-    required this.productName,
-    required this.productPrice,
-    required this.productLocation,
-    required this.productRating,
+    required this.product,
     required this.onTap,
   }) : super(key: key);
 
@@ -58,7 +53,7 @@ class ProductListview extends StatelessWidget {
                     bottomLeft: Radius.circular(10),
                   ),
                   child: Image.asset(
-                    previewImage,
+                    product.previewImage,
                     height: Dimentions.containerHeight(context, 104),
                     width: Dimentions.containerWidth(context, 104),
                     fit: BoxFit.cover,
@@ -70,14 +65,14 @@ class ProductListview extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        productName,
+                        product.productName,
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
                       ),
                       Text(
-                        productLocation,
+                        product.productLocation,
                         style: GoogleFonts.inter(
                           fontSize: 11,
                           color: AppColors.productDisplaySceondaryColor,
@@ -90,7 +85,7 @@ class ProductListview extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             RatingBarIndicator(
-                              rating: productRating.toDouble(),
+                              rating: product.productRating.toDouble(),
                               itemBuilder: (context, index) => const Icon(
                                 Icons.star,
                                 color: Colors.amber,
@@ -99,7 +94,7 @@ class ProductListview extends StatelessWidget {
                               itemSize: 15,
                               direction: Axis.horizontal,
                             ),
-                            Text('($productRating)',
+                            Text('(${product.productRating})',
                                 style: GoogleFonts.inter(
                                   fontSize: 10,
                                   color: AppColors.productDisplaySceondaryColor,
@@ -109,7 +104,7 @@ class ProductListview extends StatelessWidget {
                       ),
                       SizedBox(height: Dimentions.containerHeight(context, 5)),
                       Text(
-                        'K $productPrice',
+                        'K ${product.productPrice}',
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
@@ -128,26 +123,22 @@ class ProductListview extends StatelessWidget {
           top: 80,
           right: 11,
           child: Container(
-            height: Dimentions.containerHeight(context, 35),
-            width: Dimentions.containerWidth(context, 35),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.25),
-                    spreadRadius: 0,
-                    blurRadius: 4,
-                    offset: const Offset(0, 4),
-                  ),
-                ]),
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.favorite_border_rounded,
-                  color: AppColors.productDisplaySceondaryColor,
-                )),
-          ))
+              height: Dimentions.containerHeight(context, 35),
+              width: Dimentions.containerWidth(context, 35),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.25),
+                      spreadRadius: 0,
+                      blurRadius: 4,
+                      offset: const Offset(0, 4),
+                    ),
+                  ]),
+              child: AddToFavouritesButton(
+                product: product,
+              )))
     ]);
   }
 }

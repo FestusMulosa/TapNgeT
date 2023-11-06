@@ -1,31 +1,41 @@
 // ignore_for_file: file_names
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:tapnget/constants/colors.dart';
 import 'package:tapnget/constants/dimentions.dart';
 import 'package:tapnget/models/dummydata/dummydata.dart';
+import 'package:tapnget/models/productModel.dart';
 import 'package:tapnget/screens/Shop_Screen/widgets/product_grid_view.dart';
 import 'package:tapnget/utils/navigate_toproduct_function.dart';
 
 import '../../constants/filters.dart';
 import '../../models/dummydata/dummyProducts.dart';
-import 'widgets/filter_bottom_sheet..dart';
+import '../../providers/products_provider.dart';
 import 'widgets/Sort_bottom_sheet.dart';
+import 'widgets/filter_bottom_sheet..dart';
 import 'widgets/product_list_view.dart';
 
-class ShopScreen extends StatefulWidget {
-  const ShopScreen({super.key});
+class ShopScreen extends ConsumerStatefulWidget {
+  const ShopScreen({
+    required this.product,
+  });
+  final List<ProductModel> product;
 
   @override
-  State<ShopScreen> createState() => _ShopScreenState();
+  ConsumerState<ShopScreen> createState() => _ShopScreenState();
 }
 
-class _ShopScreenState extends State<ShopScreen> {
+class _ShopScreenState extends ConsumerState<ShopScreen> {
   bool isGrid = true;
 
   @override
   Widget build(BuildContext context) {
+    final products = ref.watch(productProvider);
     return Column(
       children: [
         SingleChildScrollView(
@@ -129,18 +139,14 @@ class _ShopScreenState extends State<ShopScreen> {
                       crossAxisCount: 2,
                       childAspectRatio: 0.73,
                     ),
-                    itemCount: dummyProducts.length,
+                    itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return dummyProducts
+                      return products
                           .map((products) => ProductGridview(
+                                product: products,
                                 onTap: () {
                                   navigateToProductPage(context, products);
                                 },
-                                previewImage: products.previewImage,
-                                productName: products.productName,
-                                productPrice: products.productPrice,
-                                productRating: products.productRating,
-                                productLocation: products.productLocation,
                               ))
                           .toList()[index];
                     }),
@@ -148,18 +154,14 @@ class _ShopScreenState extends State<ShopScreen> {
             : SizedBox(
                 height: Dimentions.containerHeight(context, 500),
                 child: ListView.builder(
-                    itemCount: dummyProducts.length,
+                    itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return dummyProducts
+                      return products
                           .map((products) => ProductListview(
+                                product: products,
                                 onTap: () {
                                   navigateToProductPage(context, products);
                                 },
-                                previewImage: products.previewImage,
-                                productName: products.productName,
-                                productPrice: products.productPrice,
-                                productRating: products.productRating,
-                                productLocation: products.productLocation,
                               ))
                           .toList()[index];
                     }),

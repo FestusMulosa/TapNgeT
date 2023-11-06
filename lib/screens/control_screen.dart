@@ -1,42 +1,50 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:tapnget/constants/colors.dart';
 
+import '../providers/products_provider.dart';
 import 'Bag_Screen/bag_screen.dart';
 import 'Favourites_Screen/favourites_screen.dart';
 import 'Home_Screen/home_screen.dart';
 import 'Profile_Screen/profile_screen.dart';
 import 'Shop_Screen/shop_screen.dart';
 
-class ControlScreen extends StatefulWidget {
+class ControlScreen extends ConsumerStatefulWidget {
   const ControlScreen({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<ControlScreen> createState() => _ControlScreenState();
+  ConsumerState<ControlScreen> createState() => _ControlScreenState();
 }
 
-class _ControlScreenState extends State<ControlScreen> {
+class _ControlScreenState extends ConsumerState<ControlScreen> {
   int currentIndex = 0;
-
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const ShopScreen(),
-    const BagScreen(),
-    const FavouriteScreen(),
-    const ProfileScreen(),
-  ];
 
   @override
   Widget build(BuildContext context) {
+    //meal provider
+    final products = ref.watch(productProvider);
+
+    //list of screens
+    final List<Widget> screens = [
+      const HomeScreen(),
+      ShopScreen(product: products),
+      const BagScreen(),
+      FavouriteScreen(),
+      const ProfileScreen(),
+    ];
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
         ),
+
+        // bottom Navigation Bar
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
@@ -59,7 +67,9 @@ class _ControlScreenState extends State<ControlScreen> {
           },
           selectedItemColor: AppColors.buttonColor,
         ),
-        body: _screens[currentIndex],
+
+        // Body
+        body: screens[currentIndex],
       ),
     );
   }

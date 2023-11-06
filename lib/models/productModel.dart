@@ -1,4 +1,5 @@
 class ProductModel {
+  final int id;
   final String previewImage;
   final String productName;
   final String productPrice;
@@ -12,6 +13,7 @@ class ProductModel {
   final List<String> availableSizes;
 
   ProductModel({
+    required this.id,
     required this.previewImage,
     required this.productName,
     required this.productPrice,

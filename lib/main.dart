@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:tapnget/screens/Login/SignUp/forgot_password.dart';
 import 'package:tapnget/screens/Product_Details_Screen/product_info_screen.dart';
@@ -10,7 +11,11 @@ import 'constants/theme.dart';
 import 'screens/Home_Screen/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,9 +27,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TapNgeT',
       theme: appTheme,
-      home: const ControlScreen(),
+      home: ControlScreen(),
       routes: {
-        '/control': (context) => const ControlScreen(),
+        '/control': (context) => ControlScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/forgotPassword': (context) => const forgotPassword(),

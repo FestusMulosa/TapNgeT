@@ -1,22 +1,28 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:tapnget/constants/dimentions.dart';
+import 'package:tapnget/models/productModel.dart';
 import 'package:tapnget/screens/Product_Details_Screen/widgets/image_slider.dart';
 import 'package:tapnget/widgets/add_to_favourites_button.dart';
 import 'package:tapnget/widgets/login/large_button.dart';
 import 'package:tapnget/widgets/product_rating.dart';
 
+import '../../providers/favourite_provider.dart';
 import 'widgets/drop_down_button.dart';
 
-class ProductInfoScreen extends StatefulWidget {
-  const ProductInfoScreen({
+class ProductInfoScreen extends ConsumerStatefulWidget {
+  ProductInfoScreen({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<ProductInfoScreen> createState() => _ProductInfoScreenState();
+  ConsumerState<ProductInfoScreen> createState() => _ProductInfoScreenState();
 }
 
-class _ProductInfoScreenState extends State<ProductInfoScreen> {
+class _ProductInfoScreenState extends ConsumerState<ProductInfoScreen> {
   @override
   Widget build(BuildContext context) {
     final product = ModalRoute.of(context)!.settings.arguments as Map;
@@ -53,7 +59,6 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                     DropDownMenu(
                       list: availablesizes,
                     ),
-                    AddToFavouritesButton()
                   ],
                 ),
                 SizedBox(
