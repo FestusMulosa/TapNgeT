@@ -17,16 +17,13 @@ class ImageSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: Dimentions.containerHeight(context, 250),
         child: CarouselSlider(
           options: CarouselOptions(),
           items: imgList
-              .map((item) => Container(
-                    child: Center(
-                        child: Image.network(item,
-                            fit: BoxFit.cover, width: 1000)),
-                  ))
+              .map((item) => Center(
+                  child: Image.network(item, fit: BoxFit.cover, width: 1000)))
               .toList(),
         ));
   }

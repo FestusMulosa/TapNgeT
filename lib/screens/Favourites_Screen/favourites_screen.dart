@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tapnget/models/productModel.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/dimentions.dart';
@@ -15,7 +14,7 @@ import '../Shop_Screen/widgets/product_grid_view.dart';
 import '../Shop_Screen/widgets/product_list_view.dart';
 
 class FavouriteScreen extends ConsumerStatefulWidget {
-  FavouriteScreen({
+  const FavouriteScreen({
     super.key,
   });
 
@@ -39,7 +38,7 @@ class _FavouriteScreenState extends ConsumerState<FavouriteScreen> {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
-                      return shoppingFilters();
+                      return const shoppingFilters();
                     });
               },
               child: Row(

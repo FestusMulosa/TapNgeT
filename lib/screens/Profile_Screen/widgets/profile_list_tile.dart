@@ -18,7 +18,7 @@ class ProfileListTile extends StatelessWidget {
       leading: Icon(icon),
       title: Text(
         title,
-        style: TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(fontWeight: FontWeight.bold),
       ),
       subtitle: Text(subtitle),
       trailing: const Icon(Icons.arrow_forward_ios),

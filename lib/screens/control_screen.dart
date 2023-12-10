@@ -34,7 +34,7 @@ class _ControlScreenState extends ConsumerState<ControlScreen> {
       const HomeScreen(),
       ShopScreen(product: products),
       const BagScreen(),
-      FavouriteScreen(),
+      const FavouriteScreen(),
       const ProfileScreen(),
     ];
 

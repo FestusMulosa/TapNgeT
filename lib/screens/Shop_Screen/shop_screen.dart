@@ -1,7 +1,5 @@
 // ignore_for_file: file_names
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,8 +11,6 @@ import 'package:tapnget/models/productModel.dart';
 import 'package:tapnget/screens/Shop_Screen/widgets/product_grid_view.dart';
 import 'package:tapnget/utils/navigate_toproduct_function.dart';
 
-import '../../constants/filters.dart';
-import '../../models/dummydata/dummyProducts.dart';
 import '../../providers/products_provider.dart';
 import 'widgets/Sort_bottom_sheet.dart';
 import 'widgets/filter_bottom_sheet..dart';
@@ -22,6 +18,7 @@ import 'widgets/product_list_view.dart';
 
 class ShopScreen extends ConsumerStatefulWidget {
   const ShopScreen({
+    super.key,
     required this.product,
   });
   final List<ProductModel> product;
@@ -68,7 +65,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen> {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
-                      return shoppingFilters();
+                      return const shoppingFilters();
                     });
               },
               child: Row(

@@ -27,14 +27,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TapNgeT',
       theme: appTheme,
-      home: ControlScreen(),
+      home: const ControlScreen(),
       routes: {
-        '/control': (context) => ControlScreen(),
+        '/control': (context) => const ControlScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/forgotPassword': (context) => const forgotPassword(),
         '/home': (context) => const HomeScreen(),
-        '/productDetails': (context) => ProductInfoScreen(),
       },
     );
   }

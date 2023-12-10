@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,6 +9,7 @@ import '../constants/dimentions.dart';
 
 class AddToFavouritesButton extends ConsumerWidget {
   const AddToFavouritesButton({
+    super.key,
     required this.product,
   });
   final ProductModel product;
@@ -50,7 +49,7 @@ class AddToFavouritesButton extends ConsumerWidget {
                   color: Colors.black,
                 ),
               ),
-              backgroundColor: Color.fromARGB(255, 133, 104, 104),
+              backgroundColor: const Color.fromARGB(255, 133, 104, 104),
               duration: const Duration(seconds: 1),
             ),
           );

@@ -1,9 +1,11 @@
+// ignore_for_file: camel_case_types, file_names
+
 import 'package:flutter/material.dart';
 
 import '../../../constants/dimentions.dart';
 
 class shoppingFilters extends StatefulWidget {
-  shoppingFilters({
+  const shoppingFilters({
     super.key,
   });
 

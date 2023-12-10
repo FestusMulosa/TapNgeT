@@ -46,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
                   SizedBox(
                     height: Dimentions.containerHeight(context, 10),
                   ),
-                  Text('User Email'),
+                  const Text('User Email'),
                 ]),
               ],
             ),

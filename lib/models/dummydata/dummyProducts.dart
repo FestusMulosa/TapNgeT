@@ -17,6 +17,7 @@ final dummyProducts = [
     availableSizes: ['S', 'M', 'L'],
     isStore: false,
     id: 7,
+    quantity: 1,
   ),
   ProductModel(
     previewImage: 'assets/images/girl.jpg',
@@ -31,6 +32,7 @@ final dummyProducts = [
     availableColors: ['red', 'blue', 'green'],
     isStore: true,
     id: 1,
+    quantity: 6,
   ),
   ProductModel(
     previewImage: 'assets/images/girl.jpg',
@@ -45,6 +47,7 @@ final dummyProducts = [
     availableColors: ['red', 'blue', 'green'],
     isStore: false,
     id: 2,
+    quantity: 5,
   ),
   ProductModel(
     previewImage: 'assets/images/girl.jpg',
@@ -59,6 +62,7 @@ final dummyProducts = [
     availableColors: ['red', 'blue', 'green'],
     isStore: false,
     id: 3,
+    quantity: 11,
   ),
   ProductModel(
     previewImage: 'assets/images/girl.jpg',
@@ -73,6 +77,7 @@ final dummyProducts = [
     availableColors: ['red', 'blue', 'green'],
     isStore: false,
     id: 4,
+    quantity: 100,
   ),
   ProductModel(
     previewImage: 'assets/images/girl.jpg',
@@ -87,6 +92,7 @@ final dummyProducts = [
     availableColors: ['red', 'blue', 'green'],
     isStore: false,
     id: 5,
+    quantity: 13,
   ),
   ProductModel(
     previewImage: 'assets/images/girl.jpg',
@@ -101,5 +107,6 @@ final dummyProducts = [
     availableColors: ['red', 'blue', 'green'],
     isStore: true,
     id: 6,
+    quantity: 25,
   ),
 ];
